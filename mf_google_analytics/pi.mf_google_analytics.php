@@ -59,10 +59,10 @@ class Mf_google_analytics
 		$methods['setAllowLinker'] = ($allow_linker === 'yes') ? 'true' : 'false';
 		$methods['setCookiePath'] = $cookie_path;
 		$methods['setDomainName'] = $domain_name;
-		$methods['trackPageView'] = '/' . $this->EE->uri->uri_string;
+		$methods['trackPageview'] = '/' . $this->EE->uri->uri_string;
 		
-		if ($methods['trackPageView'] === '/') {
-			$methods['trackPageView'] = '';
+		if ($methods['trackPageview'] === '/') {
+			$methods['trackPageview'] = '';
 		}
 		
 		if ($methods['setCookiePath'] === '/') {
@@ -76,7 +76,7 @@ class Mf_google_analytics
 			if ($query->num_rows() == 1) {
 				$keywords = strtolower(str_replace(' ', '+', $query->row('keywords')));
 				
-				$methods['trackPageView'] = $site_search_query_parameter . $keywords;
+				$methods['trackPageview'] = $site_search_query_parameter . $keywords;
 			}			
 		}
 
@@ -147,7 +147,7 @@ var _gaq = _gaq || [];
 	/**
 	 * Track page view
 	 *
-	 * Return the javascript for trackPageView
+	 * Return the javascript for trackPageview
 	 *
 	 * @access public
 	 * @return string
@@ -157,7 +157,7 @@ var _gaq = _gaq || [];
 		if ($this->EE->TMPL->fetch_param('target_url') !== FALSE) {
 			$params[] = "'". $this->EE->TMPL->fetch_param('target_url') ."'";
 			
-			return "_gaq.push(['_trackPageView', ". implode(", ", $params) ."]); return false;";
+			return "_gaq.push(['_trackPageview', ". implode(", ", $params) ."]); return false;";
 		}
 	}
 	
@@ -291,7 +291,7 @@ var _gaq = _gaq || [];
 		Track page view function
 		********************************************************************
 		
-		This function act as an helper to push trackPageView. You can use it to track mailto links or file download.
+		This function act as an helper to push trackPageview. You can use it to track mailto links or file download.
 		
 		------------------
 		EXAMPLE USAGE:
